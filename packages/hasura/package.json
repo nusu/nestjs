@@ -1,5 +1,5 @@
 {
-  "name": "@golevelup/nestjs-hasura",
+  "name": "@nusu/nestjs-hasura",
   "version": "3.0.2",
   "description": "Badass utilities for integrating Hasura and NestJS",
   "author": "Jesse Carter <jesse.r.carter@gmail.com>",

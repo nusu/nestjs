@@ -1,5 +1,5 @@
 {
-  "name": "@golevelup/nestjs-webhooks",
+  "name": "@nusu/nestjs-webhooks",
   "version": "0.2.14",
   "description": "Badass utilities for integrating webhooks and NestJS",
   "author": "Jesse Carter <jesse.r.carter@gmail.com>",

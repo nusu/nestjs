@@ -13,19 +13,24 @@ const expectedEvent = { type: eventType };
 const stripeSig = 'stripeSignatureValue';
 
 @Injectable()
-class SilentLogger extends ConsoleLogger {
-  constructor() {
+class SilentLogger extends ConsoleLogger
+{
+  constructor()
+  {
     super();
   }
-  error() {
+  error()
+  {
     // ignore
   }
 }
 
 @Injectable()
-class PaymentCreatedService {
+class PaymentCreatedService
+{
   @StripeWebhookHandler(eventType)
-  handlePaymentIntentCreated(evt: any) {
+  handlePaymentIntentCreated(evt: any)
+  {
     testReceiveStripeFn(evt);
   }
 }
@@ -40,7 +45,8 @@ const cases: [ModuleType, string | undefined][] = [
 
 describe.each(cases)(
   'Stripe Module %p with controller prefix %p (e2e)',
-  (moduleType, controllerPrefix) => {
+  (moduleType, controllerPrefix) =>
+  {
     let app: INestApplication;
     let hydratePayloadFn: jest.SpyInstance;
 
@@ -61,13 +67,14 @@ describe.each(cases)(
       },
     };
 
-    beforeEach(async () => {
+    beforeEach(async () =>
+    {
       const moduleImport =
         moduleType === 'forRoot'
           ? StripeModule.forRoot(StripeModule, moduleConfig)
           : StripeModule.forRootAsync(StripeModule, {
-              useFactory: () => moduleConfig,
-            });
+            useFactory: () => moduleConfig,
+          });
 
       const moduleFixture: TestingModule = await Test.createTestingModule({
         imports: [moduleImport],
@@ -88,25 +95,29 @@ describe.each(cases)(
         .mockImplementationOnce((sig, buff) => buff as any);
     });
 
-    it('returns an error if the stripe signature is missing', () => {
+    it('returns an error if the stripe signature is missing', () =>
+    {
       return request(app.getHttpServer())
         .post(stripeWebhookEndpoint)
         .send(expectedEvent)
         .expect(500);
     });
 
-    it('routes incoming events to their handlers based on event type', () => {
+    it('routes incoming events to their handlers based on event type', () =>
+    {
       return request(app.getHttpServer())
         .post(stripeWebhookEndpoint)
         .send(expectedEvent)
         .set('stripe-signature', stripeSig)
         .expect(201)
-        .then(() => {
+        .then(() =>
+        {
           expect(testReceiveStripeFn).toHaveBeenCalledTimes(1);
           expect(hydratePayloadFn).toHaveBeenCalledTimes(1);
           expect(hydratePayloadFn).toHaveBeenCalledWith(
             stripeSig,
-            expectedEvent
+            expectedEvent,
+            "account"
           );
           expect(testReceiveStripeFn).toHaveBeenCalledWith(expectedEvent);
         });
