@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.6.2 (2022-12-06)
+
+**Note:** Version bump only for package @nusu/nestjs-modules
+
+
+
+
+
 ## [0.6.1](https://github.com/golevelup/nestjs/compare/@golevelup/nestjs-modules@0.6.0...@golevelup/nestjs-modules@0.6.1) (2022-07-28)
 
 **Note:** Version bump only for package @golevelup/nestjs-modules

@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.0.1 (2022-12-06)
+
+**Note:** Version bump only for package @nusu/nestjs-discovery
+
+
+
+
+
 # [3.0.0](https://github.com/golevelup/nestjs/compare/@golevelup/nestjs-discovery@2.3.2...@golevelup/nestjs-discovery@3.0.0) (2022-01-24)
 
 - feat!: update libraries to support Nest 8 (#342) ([de7cd35](https://github.com/golevelup/nestjs/commit/de7cd35ac2e63d66af76b792d5bf99b4a2d82bb4)), closes [#342](https://github.com/golevelup/nestjs/issues/342)
